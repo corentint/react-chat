@@ -15,7 +15,7 @@ export default function Chat(_a) {
             setDisplayedText(textToAdd);
         }
         setUserInput("");
-    }, [id, displayedText, userInput]);
+    }, [id, displayedText, userInput, setDisplayedText, setUserInput]);
     return (React.createElement(Grid, { container: true, item: true, xs: 4, direction: "column" },
         React.createElement(Grid, { item: true },
             React.createElement(Typography, { variant: "h6" },

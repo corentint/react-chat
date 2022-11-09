@@ -26,7 +26,7 @@ export default function Chat({
       setDisplayedText(textToAdd);
     }
     setUserInput("");
-  }, [id, displayedText, userInput]);
+  }, [id, displayedText, userInput, setDisplayedText, setUserInput]);
 
   return (
     <Grid container item xs={4} direction={"column"}>
