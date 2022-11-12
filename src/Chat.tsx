@@ -1,6 +1,9 @@
-import { Button, Grid, TextField, Typography } from "@mui/material";
+import { Grid } from "@mui/material";
 import React, { useCallback, useState } from "react";
 import "./Chat.css";
+import Discussion from "./Discussion";
+import MessageSender from "./MessageSender";
+import Title from "./Title";
 
 interface ChatProps {
   id: string;
@@ -30,38 +33,13 @@ export default function Chat({
 
   return (
     <Grid container item xs={4} direction={"column"}>
-      <Grid item>
-        <Typography variant="h6">Chat {id}</Typography>
-      </Grid>
-      <Grid item>
-        <TextField
-          fullWidth
-          minRows={4}
-          value={displayedText}
-          multiline
-          inputProps={{
-            readOnly: true,
-          }}
-        ></TextField>
-      </Grid>
-      <Grid container>
-        <Grid item xs>
-          <TextField
-            fullWidth
-            value={userInput}
-            onChange={(e) => setUserInput(e.currentTarget.value)}
-          ></TextField>
-        </Grid>
-        <Grid item>
-          <Button
-            className="validate-button"
-            variant="contained"
-            onClick={handleClick}
-          >
-            OK
-          </Button>
-        </Grid>
-      </Grid>
+      <Title id={id}></Title>
+      <Discussion displayedText={displayedText}></Discussion>
+      <MessageSender
+        userInput={userInput}
+        setUserInput={setUserInput}
+        handleClick={handleClick}
+      ></MessageSender>
     </Grid>
   );
 }
